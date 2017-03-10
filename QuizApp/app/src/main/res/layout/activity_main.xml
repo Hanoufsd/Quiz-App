@@ -49,16 +49,13 @@
 
             <RadioButton
                 android:id="@+id/male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/male" />
+                android:text="@string/male"
+                style="@style/RadioButtonTheme"/>
 
             <RadioButton
                 android:id="@+id/female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/female"
-                android:textSize="12sp" />
+                style="@style/RadioButtonTheme" />
         </RadioGroup>
 
 
@@ -115,6 +112,51 @@
             android:id="@+id/CheckBoxQ6"
             style="@style/CheckBoxTheme"
             android:text="@string/statement6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_questionB"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingTop="10dp"/>
+
+        <EditText
+            android:id="@+id/txt_questionB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_questionC"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/Denmark"
+                android:text="@string/Denmark"
+                style="@style/RadioButtonTheme"/>
+
+            <RadioButton
+                android:id="@+id/France"
+                android:text="@string/France"
+                style="@style/RadioButtonTheme" />
+            <RadioButton
+                android:id="@+id/Belgium"
+                android:text="@string/Belgium"
+                style="@style/RadioButtonTheme" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/submitButton"

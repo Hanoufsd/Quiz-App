@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean correctAnswer_Question1 = true;
-    boolean correctAnswer_Question2 = false;
-    boolean correctAnswer_Question3 = true;
-    boolean correctAnswer_Question4 = true;
-    boolean correctAnswer_Question5 = false;
-    boolean correctAnswer_Question6 = false;
+    boolean correctAnswer_QuestionA1 = true;
+    boolean correctAnswer_QuestionA2 = false;
+    boolean correctAnswer_QuestionA3 = true;
+    boolean correctAnswer_QuestionA4 = true;
+    boolean correctAnswer_QuestionA5 = false;
+    boolean correctAnswer_QuestionA6 = false;
+    String correctAnswer_QuestionB ="FEMALE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +30,23 @@ public class MainActivity extends AppCompatActivity {
         String name =  ((EditText)findViewById(R.id.nameText)).getText().toString();
         Boolean IsMale_gender = ((RadioButton) findViewById(R.id.male)).isChecked();
         Boolean IsFemale_gender = ((RadioButton) findViewById(R.id.female)).isChecked();
-        Boolean answerQ1 = ((CheckBox) findViewById(R.id.CheckBoxQ1)).isChecked();
-        Boolean answerQ2 = ((CheckBox) findViewById(R.id.CheckBoxQ2)).isChecked();
-        Boolean answerQ3 = ((CheckBox) findViewById(R.id.CheckBoxQ3)).isChecked();
-        Boolean answerQ4 = ((CheckBox) findViewById(R.id.CheckBoxQ4)).isChecked();
-        Boolean answerQ5 = ((CheckBox) findViewById(R.id.CheckBoxQ5)).isChecked();
-        Boolean answerQ6 = ((CheckBox) findViewById(R.id.CheckBoxQ6)).isChecked();
+        Boolean answerQA1 = ((CheckBox) findViewById(R.id.CheckBoxQ1)).isChecked();
+        Boolean answerQA2 = ((CheckBox) findViewById(R.id.CheckBoxQ2)).isChecked();
+        Boolean answerQA3 = ((CheckBox) findViewById(R.id.CheckBoxQ3)).isChecked();
+        Boolean answerQA4 = ((CheckBox) findViewById(R.id.CheckBoxQ4)).isChecked();
+        Boolean answerQA5 = ((CheckBox) findViewById(R.id.CheckBoxQ5)).isChecked();
+        Boolean answerQA6 = ((CheckBox) findViewById(R.id.CheckBoxQ6)).isChecked();
+        String answerQB =  ((EditText)findViewById(R.id.txt_questionB)).getText().toString();
+        Boolean answerQC = ((RadioButton) findViewById(R.id.Belgium)).isChecked(); //correct answer Question -C
 
-        int score = getScore(answerQ1, answerQ2, answerQ3, answerQ4, answerQ5, answerQ6);
+        int score = getScore(answerQA1, answerQA2, answerQA3, answerQA4, answerQA5, answerQA6,answerQB,answerQC);
         String result, helloMsg;
-        if (score == 6)
+        if (score == 8)
             result = "Congrats.. You answered all of them correctly :)";
         else if (score == 0)
             result = "Please answer the questions to view your results. ";
         else
-            result = "You answered " + score + " out of 6 correctly.";
+            result = "You answered " + score + " out of 8 correctly.";
 
         if (IsMale_gender)
             helloMsg = "Hello, Mr." + name;
@@ -56,22 +59,29 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
     }
 
-    private int getScore(Boolean answerQ1, Boolean answerQ2, Boolean answerQ3, Boolean answerQ4, Boolean answerQ5, Boolean answerQ6) {
+    private int getScore(Boolean answerQ1, Boolean answerQ2, Boolean answerQ3, Boolean answerQ4, Boolean answerQ5, Boolean answerQ6,String answerQB,Boolean answerQC) {
 
         int score = 0;
 
-        if (answerQ1 == correctAnswer_Question1)
-            score = score + 1;
-        if (answerQ2 == correctAnswer_Question2)
-            score = score + 1;
-        if (answerQ3 == correctAnswer_Question3)
-            score = score + 1;
-        if (answerQ4 == correctAnswer_Question4)
-            score = score + 1;
-        if (answerQ5 == correctAnswer_Question5)
-            score = score + 1;
-        if (answerQ6 == correctAnswer_Question6)
-            score = score + 1;
+        if (answerQ1 == correctAnswer_QuestionA1)
+            score ++;
+        if (answerQ2 == correctAnswer_QuestionA2)
+            score ++;
+        if (answerQ3 == correctAnswer_QuestionA3)
+            score ++;
+        if (answerQ4 == correctAnswer_QuestionA4)
+            score ++;
+        if (answerQ5 == correctAnswer_QuestionA5)
+            score ++;
+        if (answerQ6 == correctAnswer_QuestionA6)
+            score ++;
+
+        if (answerQB.toUpperCase().equals(correctAnswer_QuestionB))
+            score++;
+
+        if (answerQC)
+            score++;
+
 
         return score;
     }
